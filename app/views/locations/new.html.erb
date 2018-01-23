@@ -1,0 +1,23 @@
+<div class="callout form">
+  <div class="grid-x align-center">
+    <h1>Add New Location</h1>
+  </div>
+
+  <div class="grid-x align-center">
+    <%= form_for @location do |f| %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :rating %>
+      <%= f.select :rating, 1..5 %>
+
+      <%= f.submit %>
+
+    <%end %>
+  </div>
+</div>
+
+<div class="grid-x align-center">
+<%= link_to "Go back", '/', class:"button" %>
+</div>

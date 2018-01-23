@@ -1,0 +1,17 @@
+<div class="grid-x align-center">
+<h1 class="title">My Locations</h1>
+</div>
+
+<% @locations.each do |location| %>
+  <div class="card">
+    <h4 class="grid-x align-center"><%=location.address%> - <%=location.rating%> Stars</h4>
+    <div class="grid-x align-center card-divider">
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{location.latitude},#{location.longitude}&markers=#{location.latitude},#{location.longitude}&zoom=13&size=500x300&key=AIzaSyD81QicaEingmpyoHJlwq5rwUEGZuZNWXs" %>
+      <%= link_to "Delete Location", location, method: :delete, class:"button"%>
+    </div>
+  </div>
+<%end  %>
+
+<div class="grid-x align-center">
+<%= link_to "Add New Location", new_location_path, class:"add button" %>
+</div>
