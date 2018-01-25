@@ -1,24 +1,14 @@
-# README
+# READ_ME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small Travel Application. Allowing Users to log their travels and rank their visits. Using Google Maps Api.
 
-Things you may want to cover:
+* Ruby version - 2.3.3
+* Rails version - 5.1.4
 
-* Ruby version
+* Devise User-Auth
 
-* System dependencies
-
-* Configuration
-
-* Database creation
+* Foundation - 5.4.5.0
 
 * Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  1)Rake db:create
+  2)Rake db:migrate

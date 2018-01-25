@@ -5,8 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise'
 gem 'foundation-rails'
+gem 'devise'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
