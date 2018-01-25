@@ -30,7 +30,9 @@
 .title {
   font-size: 3.5em;
   margin-top: 3%;
-  background-color: #1B689C;
+  font-family: 'Courgette', cursive;
+  background-color: rgba(60, 60, 60, 0.7);
+  border: 1px solid black;
   padding: 1% 25%;
   color: white;
   border-radius: 1em;
@@ -58,14 +60,14 @@
 }
 
 .top-bar {
-  background-color: rgba(60, 60, 60, 0.7);
+  background-color: #222323;
   border-bottom: 2px black solid;
   color: white;
 }
 
-/* .mid-top-bar-center{
-  color: red;
-} */
+.top-bar ul {
+  background-color: #222323;
+}
 
 .header{
   font-family: 'Courgette', cursive;

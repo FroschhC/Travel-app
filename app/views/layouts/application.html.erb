@@ -14,16 +14,29 @@
 
   <body>
     <div class="top-bar">
-      <h5 class="header">TravelAPP</h5>
-        <% if current_user %>
-          <h5><%= current_user.user_name %></h5>
-          <h5><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></h5>
-        <%else%>
-          <h5><%= link_to "Sign In", user_session_path %></h5>
-          <h5><%= link_to "Sign Up", new_user_registration_path %></h5>
-        <%end %>
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="header">TravelAPP</li>
+          <h6>beta</h6>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#">Menu</a>
+            <% if current_user %>
+            <ul class="menu vertical">
+            <li><%= link_to "Profile Page", '/' %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+            <%else%>
+              <ul class="menu vertical">
+                <li><%= link_to "Sign In", user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              </ul>
+            <%end%>
+          </li>
+      </div>
     </div>
-
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>

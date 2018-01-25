@@ -1,6 +1,10 @@
-<div class="grid-x align-center">
-<h1 class="title">My Locations</h1>
-</div>
+<div class="web-back">
+  <div class="grid-x align-center">
+    <h1 class="title">My Locations</h1>
+  </div>
+  <div class="grid-x align-center">
+  <%= link_to "Add New Location", new_location_path, class:"add button" %>
+  </div>
 
 <% @locations.each do |location| %>
   <div class="card">
@@ -11,7 +15,4 @@
     </div>
   </div>
 <%end  %>
-
-<div class="grid-x align-center">
-<%= link_to "Add New Location", new_location_path, class:"add button" %>
 </div>
