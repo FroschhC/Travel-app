@@ -7,7 +7,7 @@ Small Travel Application. Allowing Users to log their travels and rank their vis
 
 * Devise User-Auth
 
-* Foundation - 5.4.5.0
+* Bootstrap 
 
 * Database initialization
   1)Rake db:create
