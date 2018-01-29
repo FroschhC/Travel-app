@@ -6,41 +6,44 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="header">TravelAPP</li>
-          <h6>beta</h6>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">TravelAPP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if current_user %>
+                <a class="dropdown-item" href="/users/sign_out" data-method="delete">Sign Out <%= icon "sign-out" %></a>
+              <%else%>
+                <a class="dropdown-item" href="/users/sign_in">Sign In  <%= icon "sign-in" %></a>
+                <a class="dropdown-item" href="/users/sign_up">Sign Up <%=icon "user-plus"%></a>
+              <%end%>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item disabled" href="#">About Us  <%= icon "info-circle" %></a>
+            </div>
+          </li>
         </ul>
       </div>
-      <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li>
-            <a href="#">Menu</a>
-            <% if current_user %>
-            <ul class="menu vertical">
-            <li><%= link_to "Profile Page", '/' %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
-            <%else%>
-              <ul class="menu vertical">
-                <li><%= link_to "Sign In", user_session_path %></li>
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-              </ul>
-            <%end%>
-          </li>
-      </div>
-    </div>
-    <% if flash[:notice] %>
+    </nav>
+    <!-- <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-
+    <% end %> -->
     <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
